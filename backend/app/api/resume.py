@@ -2,6 +2,7 @@ from fastapi import APIRouter, UploadFile, File, HTTPException, Depends
 from sqlalchemy.orm import Session
 import os
 import shutil
+import json
 
 from app.database.database import get_db
 from app.models.resume import Resume
@@ -27,33 +28,48 @@ def upload_resume(
     current_user: User = Depends(get_current_user)
 ):
 
+    # Validate PDF
     if not file.filename.endswith(".pdf"):
         raise HTTPException(
             status_code=400,
             detail="Only PDF files are allowed."
         )
 
-    file_path = os.path.join(
-        UPLOAD_FOLDER,
-        file.filename
-    )
+    # Save uploaded file
+    file_path = os.path.join(UPLOAD_FOLDER, file.filename)
 
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
+    # Extract text from PDF
     extracted_text = extract_text_from_pdf(file_path)
 
+    # Analyze resume using Gemini
     try:
         analysis = analyze_resume(extracted_text)
     except Exception as e:
-        analysis = f"AI Analysis Failed: {str(e)}"  
+        analysis = {
+            "ats_score": None,
+            "strengths": [],
+            "weaknesses": [],
+            "missing_skills": [],
+            "suggestions": [],
+            "error": str(e)
+        }
 
+    # Create Resume object
     new_resume = Resume(
         filename=file.filename,
         filepath=file_path,
-        user_id=current_user.id
+        user_id=current_user.id,
+        ats_score=analysis.get("ats_score"),
+        strengths=json.dumps(analysis.get("strengths", [])),
+        weaknesses=json.dumps(analysis.get("weaknesses", [])),
+        missing_skills=json.dumps(analysis.get("missing_skills", [])),
+        suggestions=json.dumps(analysis.get("suggestions", []))
     )
 
+    # Save to database
     db.add(new_resume)
     db.commit()
     db.refresh(new_resume)

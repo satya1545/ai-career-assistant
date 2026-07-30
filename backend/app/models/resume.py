@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 
 from app.database.database import Base
-
+from sqlalchemy import Column, Integer, Text
 
 class Resume(Base):
     __tablename__ = "resumes"
@@ -22,3 +22,12 @@ class Resume(Base):
     "User",
     back_populates="resumes"
 )
+    ats_score = Column(Integer)
+
+    strengths = Column(Text)
+
+    weaknesses = Column(Text)
+
+    missing_skills = Column(Text)
+
+    suggestions = Column(Text)
