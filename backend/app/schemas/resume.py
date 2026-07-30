@@ -1,6 +1,10 @@
 from pydantic import BaseModel
 
 
-class ResumeUploadResponse(BaseModel):
+class ResumeResponse(BaseModel):
+    id: int
     filename: str
-    message: str
+    filepath: str
+
+    class Config:
+        from_attributes = True
