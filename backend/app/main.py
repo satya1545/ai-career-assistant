@@ -44,7 +44,9 @@ app.add_exception_handler(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173"
+        "http://localhost:5173",
+        "https://ai-career-assistant-frontend-mu.vercel.app",
+        "https://ai-career-assistant-frontend-git-main-satya1545s-projects.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
