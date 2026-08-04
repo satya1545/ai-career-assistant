@@ -5,25 +5,54 @@ import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 import UploadResume from "../pages/UploadResume";
 import ResumeAnalysis from "../pages/ResumeAnalysis";
+import ProtectedRoute from "./ProtectedRoute";
 
 function AppRoutes() {
-  return (
-    <BrowserRouter>
-      <Routes>
+    return (
+        <BrowserRouter>
+            <Routes>
 
-        <Route path="/" element={<Login />} />
+                {/* Public Routes */}
 
-        <Route path="/register" element={<Register />} />
+                <Route path="/" element={<Login />} />
 
-        <Route path="/dashboard" element={<Dashboard />} />
+                <Route
+                    path="/register"
+                    element={<Register />}
+                />
 
-        <Route path="/upload" element={<UploadResume />} />
+                {/* Protected Routes */}
 
-        <Route path="/analysis" element={<ResumeAnalysis />} />
+                <Route
+                    path="/dashboard"
+                    element={
+                        <ProtectedRoute>
+                            <Dashboard />
+                        </ProtectedRoute>
+                    }
+                />
 
-      </Routes>
-    </BrowserRouter>
-  );
+                <Route
+                    path="/upload"
+                    element={
+                        <ProtectedRoute>
+                            <UploadResume />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/analysis"
+                    element={
+                        <ProtectedRoute>
+                            <ResumeAnalysis />
+                        </ProtectedRoute>
+                    }
+                />
+
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default AppRoutes;
