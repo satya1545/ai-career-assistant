@@ -6,9 +6,9 @@ An AI-powered web application that analyzes resumes, provides ATS scores, identi
 
 ## 🌐 Live Demo
 
-**Frontend:** https://YOUR-VERCEL-URL.vercel.app
+**Frontend:ai-career-assistant-frontend-69mz3neo3-satya1545s-projects.vercel.app
 
-**Backend API:** https://YOUR-RENDER-URL.onrender.com
+**Backend API:https://ai-career-assistant-yipw.onrender.com
 
 ---
 
