@@ -249,7 +249,7 @@ GitHub:
 https://github.com/satya1545
 
 LinkedIn:
-(Add your LinkedIn profile)
+www.linkedin.com/in/satyanarayanapasupunuri
 
 ---
 
