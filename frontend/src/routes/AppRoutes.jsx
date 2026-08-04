@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Login from "../pages/Login";
-import Register from "../pages/Register";
-import Dashboard from "../pages/Dashboard";
-import UploadResume from "../pages/UploadResume";
-import ResumeAnalysis from "../pages/ResumeAnalysis";
+import Login from "../pages/login";
+import Register from "../pages/register";
+import Dashboard from "../pages/dashboard";
+import UploadResume from "../pages/uploadresume";
+import ResumeAnalysis from "../pages/resumeanalysis";
 import ProtectedRoute from "./ProtectedRoute";
 
 function AppRoutes() {
@@ -12,16 +12,8 @@ function AppRoutes() {
         <BrowserRouter>
             <Routes>
 
-                {/* Public Routes */}
-
                 <Route path="/" element={<Login />} />
-
-                <Route
-                    path="/register"
-                    element={<Register />}
-                />
-
-                {/* Protected Routes */}
+                <Route path="/register" element={<Register />} />
 
                 <Route
                     path="/dashboard"
