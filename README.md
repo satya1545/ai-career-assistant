@@ -1,4 +1,4 @@
-# 🚀 AI Career Assistant
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f6ee7a98-83f4-4ec4-89e0-8cc51b6e445c" /># 🚀 AI Career Assistant
 
 An AI-powered web application that analyzes resumes, provides ATS scores, identifies missing skills, and suggests improvements using Google's Gemini AI.
 
@@ -14,7 +14,10 @@ An AI-powered web application that analyzes resumes, provides ATS scores, identi
 
 # 📸 Screenshots
 
-> Add screenshots here after deployment.
+> <img width="1920" height="1080" alt="Screenshot 2026-08-04 205426" src="https://github.com/user-attachments/assets/daab7a48-fe85-479e-971b-b3195885ba1a" />
+<img width="1920" height="1080" alt="Screenshot 2026-08-04 205359" src="https://github.com/user-attachments/assets/aa1f23e1-1bc6-4a9b-982e-f9960d2f7abe" />
+<img width="1920" height="1080" alt="Screenshot 2026-08-04 204616" src="https://github.com/user-attachments/assets/55e11acf-6b73-4c3d-89aa-e2b014518099" />
+
 
 - Login Page
 - Register Page
